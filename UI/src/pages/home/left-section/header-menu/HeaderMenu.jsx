@@ -40,6 +40,7 @@ function HeaderMenu() {
           horizontal: "right",
         }}
       >
+        <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
         <MenuItem onClick={() => navigate("/settings")}>Settings</MenuItem>
         <MenuItem onClick={() => navigate("/login")}>Logout</MenuItem>
       </Menu>
