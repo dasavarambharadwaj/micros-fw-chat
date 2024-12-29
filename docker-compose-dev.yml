@@ -1,0 +1,18 @@
+services:
+  ui:
+    build:
+      context: ./UI
+      dockerfile: Dockerfile.dev
+      args:
+        REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
+        REACT_APP_API_VERSION: ${REACT_APP_API_VERSION}
+        REACT_APP_REDIRECT_URL: ${REACT_APP_REDIRECT_URL}
+    environment:
+      WDS_SOCKET_HOST: 127.0.0.1
+      CHOKIDAR_USEPOLLING: true
+      WATCHPACK_POLLING: true
+    ports:
+      - "4001:3004"
+    volumes:
+      - ./UI:/app # Mount local code to the container for live changes
+      - /app/node_modules # Ensure node_modules are handled properly
